@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chairs Digishow room</title>
+    <title>Chair show room</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
 
+    <div class="container">
+        <div class="header">
+            <a href="./index.html" class="title">
+                <h1>ShowRoom</h1>
+            </a>
+
+            <div class="cart-button">
+                <a href="cart.html">
+                    <img src="./resources/images/shopping-cart.png" alt="">
+                </a>
+                <p class="cart-number">0</p>
+            </div>
+        </div>
+
+        <template class="items">
+            <div class="item">
+                <div class="img-wrapper">
+                    <img src="./resources/images/1.png" alt="img 1">
+                </div>
+
+                <div class="item-description">
+                    <h3 class="name">LD01 LOUNGE CHAIR</h3>
+                    <p class="price">$500</p>
+                </div>
+
+                <div class="item-cart-options">
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+        </template>
+    </div>
+
+
+    
     <script src="app.js"></script>
     
 </body>
