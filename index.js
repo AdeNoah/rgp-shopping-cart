@@ -5,6 +5,9 @@ const showRoom = document.querySelector('.container');
 const items = document.querySelector('.items');
 const template = document.querySelector('.item-template');
 
+const cart = document.querySelector('.cart');
+
+
 
 async function loadProducts() {
     try {
@@ -26,11 +29,23 @@ async function loadProducts() {
 
             items.appendChild(clone);
         });
+
+
+        const AddButton = document.querySelectorAll('.add-to-cart');
+        AddButton.forEach(button => {
+            button.addEventListener('click', () => {
+                console.log(`${button.textContent}`)
+            })
+        })
+
+
         return data;
     } catch (error) {
         console.log('Error:',error);
     }
 }
 loadProducts();
+
+
 
 
