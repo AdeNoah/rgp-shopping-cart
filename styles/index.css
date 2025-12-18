@@ -40,14 +40,14 @@
     color: white;
 }
 
-.items {
+.products {
     padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.item {
+.product {
     padding: 10px;
     max-width: 320px;
     display: flex;
@@ -59,10 +59,10 @@
     max-width: 320px;
 }
 
-.item-description{
+.product-description{
     margin-top: 0;
 }
-.item-description > .price {
+.product-description > .price {
     font-weight: 400;
     font-size: 20px;
 }

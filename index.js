@@ -2,8 +2,8 @@ console.log('Hello show room!')
 
 const url = 'resources/products.json';
 const showRoom = document.querySelector('.container');
-const items = document.querySelector('.items');
-const template = document.querySelector('.item-template');
+const items = document.querySelector('.products');
+const template = document.querySelector('.product-template');
 
 const cart = document.querySelector('.cart');
 
@@ -25,18 +25,18 @@ async function loadProducts() {
             clone.querySelector('.price').textContent = `$${product.price}`;
             clone.querySelector('img').src = product.image;
             clone.querySelector('img').alt = product.name;
-            // clone.querySelector('.add-to-cart').dataset.id = product.id;
+            clone.querySelector('.add-to-cart').dataset.id = product.id;
 
             items.appendChild(clone);
         });
 
 
-        const AddButton = document.querySelectorAll('.add-to-cart');
-        AddButton.forEach(button => {
-            button.addEventListener('click', () => {
-                console.log(`${button.textContent}`)
-            })
-        })
+        // const AddButton = document.querySelectorAll('.add-to-cart');
+        // AddButton.forEach(button => {
+        //     button.addEventListener('click', () => {
+        //         console.log(`${button.textContent}`)
+        //     })
+        // })
 
 
         return data;
@@ -47,5 +47,9 @@ async function loadProducts() {
 loadProducts();
 
 
-
+document.querySelector('.items').addEventListener('click', (e) => {
+    if (e.target.matches('.add-to-cart')) {
+        console.log(e.target.dataset.id);  // Works even for future buttons!
+    }
+});
 
