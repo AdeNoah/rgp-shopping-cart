@@ -54,7 +54,13 @@ items.addEventListener('click', (e) => {
         console.log(product)
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push(product)
+        const existingProduct = cart.find(product => product.id == productId)
+
+        if(existingProduct) {
+            existingProduct.quantity += 1;
+        } else{
+            cart.push({...product, quantity: 1})
+        }
 
         localStorage.setItem('cart', JSON.stringify(cart))
         console.log('cart:', cart)
