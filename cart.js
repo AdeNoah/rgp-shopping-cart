@@ -21,6 +21,21 @@ document.addEventListener('DOMContentLoaded', async () =>{
         cartItems.style.justifyContent = 'center'
         return
     }
-    
+    renderCartItems(cart)
 })
 
+function renderCartItems(cart) {
+    cart.forEach(cartItem => {
+        const clone = template.content.cloneNode(true)
+        
+        clone.querySelector('.name').textContent = cartItem.name;
+        clone.querySelector('.price').textContent = `$${cartItem.price}`;
+        clone.querySelector('img').src = cartItem.image;
+        clone.querySelector('img').alt = cartItem.name;
+        clone.querySelector('.quantity').textContent = cartItem.quantity;
+        clone.querySelector('.cart-item').dataset.id = cartItem.id;
+
+        cartItems.appendChild(clone)
+    
+    })
+}
