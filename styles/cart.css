@@ -46,6 +46,11 @@
     background-color: #a03232;
     position: absolute;
 }
+.quantity {
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+}
 
 .cart-items {
     padding: 0 20px;
