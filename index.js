@@ -29,13 +29,6 @@ async function loadProducts() {
             items.appendChild(clone);
         });
 
-        // selecting the buttons from within the async function
-        // const AddButton = document.querySelectorAll('.add-to-cart');
-        // AddButton.forEach(button => {
-        //     button.addEventListener('click', () => {
-        //         console.log(`${button.textContent}`)
-        //     })
-        // })
 
         return allProducts;
     } catch (error) {
