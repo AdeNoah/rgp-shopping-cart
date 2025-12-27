@@ -22,6 +22,25 @@ document.addEventListener('DOMContentLoaded', async () =>{
         return
     }
     renderCartItems(cart)
+
+    cartItems.addEventListener('click', e => {
+        const cartItem = e.target.closest('.cart-item')
+        if (!cartItem) return;
+
+        const cartItemId = cartItem.dataset.id;
+
+        if (e.target.classList.contains('unselected')) {
+            e.target.classList.toggle('selected')
+        }
+
+        if (e.target.classList.contains('subtract')) {
+            updateQuantity(cartItemId, -1);
+        } else if (e.target.classList.contains('add')) {
+            updateQuantity(cartItemId, 1);
+        } else if (e.target.classList.contains('remove')) {
+            removeItem(cartItemId)
+        }
+    })
 })
 
 function renderCartItems(cart) {
@@ -40,24 +59,7 @@ function renderCartItems(cart) {
     })
 }
 
-cartItems.addEventListener('click', e => {
-    const cartItem = e.target.closest('.cart-item')
-    if(!cartItem) return;
 
-    const cartItemId = cartItem.dataset.id;
-
-    if(e.target.classList.contains('unselected')) {
-        e.target.classList.toggle('selected')
-    }
-    
-    if(e.target.classList.contains('subtract')) {
-        updateQuantity(cartItemId, -1);
-    }  else if(e.target.classList.contains('add')) {
-        updateQuantity(cartItemId, 1);
-    } else if(e.target.classList.contains('remove')) {
-        removeItem(cartItemId)
-    }
-})
 
 function updateQuantity(id, change) {
     const cart =JSON.parse(localStorage.getItem('cart')) || [];
@@ -85,8 +87,19 @@ function removeItem(cartItemId) {
 function reRenderCart() {
     cartItems.innerHTML = '';
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
     if (cart.length === 0) {
-        return;
+        const emptyCartMsg = document.createElement('div')
+        emptyCartMsg.classList.add('empty-cart-msg')
+        emptyCartMsg.textContent = 'Your cart is empty'
+        emptyCartMsg.style.fontSize = '26px'
+        emptyCartMsg.style.marginTop = 'calc(50% - 13px)'
+        emptyCartMsg.style.color = '#a03232'
+        cartItems.appendChild(emptyCartMsg)
+        cartItems.style.display = 'flex'
+        cartItems.style.flexDirection = 'row'
+        cartItems.style.justifyContent = 'center'
+        return
     }
     renderCartItems(cart)
 }
