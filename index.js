@@ -38,6 +38,11 @@ async function loadProducts() {
 loadProducts();
 console.log(allProducts)
 
+function reloadProducts(){
+    const cartNumber = document.querySelector('.cart-number');
+    const cart = JSON.parse(localStorage.getItem('cart')) || []
+    cartNumber.textContent = cart.length
+}
 
 // selecting the buttons using event delegation from outside the async function 
 items.addEventListener('click', (e) => {
@@ -57,6 +62,6 @@ items.addEventListener('click', (e) => {
 
         localStorage.setItem('cart', JSON.stringify(cart))
         console.log('cart:', cart)
+        reloadProducts();
     }
 });
-
