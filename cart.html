@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cart</title>
     <link rel="stylesheet" href="./styles/cart.css">
 </head>
+
 <body>
 
     <div class="cart-container">
@@ -13,18 +15,18 @@
             <a href="./index.html" class="title">
                 <h1>ShowRoom</h1>
             </a>
-    
+
             <div class="back-button">
                 <a href="index.html">
                     <img src="./resources/images/back-arrow.png" alt="">
                 </a>
             </div>
         </div>
-    
+
         <div class="cart-items">
-    
+
             <template class="cart-item-template">
-                
+
                 <div class="cart-item">
                     <div class="unselected"></div>
 
@@ -33,12 +35,12 @@
                     <div class="cart-img-wrapper">
                         <img src="./resources/images/1.png" alt="img 1">
                     </div>
-    
+
                     <div class="item-description">
                         <h3 class="name">LD01 LOUNGE CHAIR</h3>
                         <p class="price">$500</p>
                     </div>
-    
+
                     <div class="item-cart-options">
                         <button class="subtract">-</button>
                         <button class="add">+</button>
@@ -47,12 +49,31 @@
                 </div>
 
             </template>
-    
+
         </div>
 
-        <footer>
+        <footer class="checkout">
+            <div class="checkout-items">
+
+                <template class="checkout-template">
+
+                    <div class="checkout-item">
+                        <div class="checkout-item-image">
+                            <img src="./resources/images/1.png" alt="img 1">
+                        </div>
+                        <div class="checkout-item-name">product name</div>
+                        <div class="quantity">quantity</div>
+                        <div class="checkout-item-price">product price</div>
+                    </div>
+
+                </template>
+                
+            </div>
+
+            <div class="total-price">total price</div>
+            <button class="checkout-btn">Checkout</button>
         </footer>
-    
+
     </div>
 
 
@@ -61,7 +82,7 @@
 
 
     <script src="cart.js"></script>
-    
-</body>
-</html>
 
+</body>
+
+</html>
