@@ -5,13 +5,23 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
 .container {
+    max-width: 375px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .header {
+    /* max-width: 100%; */
+    width: 100%;
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
@@ -21,6 +31,7 @@
 
 .title {
     text-decoration: none;
+    font-size: smaller; /**/
     color: #a03232;
 }
 
@@ -41,10 +52,12 @@
 }
 
 .items {
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    padding: 0  10px;
+    display: flex; /**/
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 20px auto;
 }
 
 .item {
@@ -80,17 +93,88 @@
 }
 
 
+/* responsive screens*/
+@media screen and  (min-width: 500px) {
+    .container {
+        max-width: 500px;
+        width: 100%;
+    }
+    .header {
+        max-width: 500px;
+        width: 100%;
+    }
+    .items {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .item{
+        padding: 10px;
+        max-width: 320px;
+    }
+}
 
+@media screen and (min-width: 768px){
+    .container {
+        max-width: 768px;
+        width: 100%;
+    }
+    .header {
+        max-width: 768px;
+        width: 100%;
+    }
+    .items {
+        max-width: 768px;
+        margin: 0 auto 20px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .item {
+        padding: 20px;
+        max-width: 340px;
+    }
+}
 
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+        width: 100%;
+    }
+    .header {
+        max-width: 1024px;
+        width: 100%;
+    }
+    .items {
+        max-width: 1024px;
+        margin: 0 auto 30px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .item {
+        padding: 20px;
+        max-width: 320px;
+    }
+}
 
-
-
-
-
-
-
-
-
-/* @media (min-width: 768px)
-@media (min-width: 1024px)
-@media (min-width: 1440px) */
+@media screen and (min-width: 1440px) {
+    .container{
+        max-width: 1440px;
+        width: 100%;
+    }
+    .header {
+        max-width: 1440px;
+        width: 100%;
+    }
+    .items {
+        max-width: 1440px;
+        margin: 0 auto 30px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    .item {
+        padding: 20px;
+        max-width: 300px;
+    }
+}
